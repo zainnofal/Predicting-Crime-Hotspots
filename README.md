@@ -1,23 +1,24 @@
 Predicting Crime Hotspots for Public Safety Using Big Data Analytics
+A PySpark-based Approach to Geospatial and Temporal Crime Analysis
 This project leverages Big Data analytics, geospatial analysis, and machine learning to identify crime hotspots and uncover temporal and spatial crime patterns. Using a large-scale crime dataset from the Chicago Police Department, the system provides actionable insights to support proactive law enforcement and public safety planning.
 🚀 Project Objectives
 Analyze large-scale crime data to identify high-risk areas
-Understand temporal crime trends and seasonality
+Explore temporal crime trends and seasonality
 Detect crime hotspots using unsupervised learning
-Support data-driven decision-making for public safety agencies
+Enable data-driven decision-making for public safety agencies
 📊 Dataset
 Source: Chicago Police Department (public crime records)
 Size: 7.8M+ records, 22 attributes
+Time Range: 2001–2024 (if applicable, adjust as needed)
 Key Features:
 Crime details: primary type, description, arrest, domestic
-Temporal data: date, year, month
+Temporal data: date, year, month, day-of-week
 Geospatial data: latitude, longitude, community area
 🛠️ Technologies Used
-Apache Spark (PySpark) – large-scale data processing
-Python – data analysis and feature engineering
-Spark MLlib – machine learning and clustering
-K-Means Clustering – hotspot detection
-Geospatial & Temporal Analysis – crime pattern discovery
+Big Data Processing: Apache Spark (PySpark)
+Programming: Python (Pandas, NumPy, Matplotlib, Seaborn)
+Machine Learning: Spark MLlib (K-Means Clustering, Feature Engineering)
+Analysis: Geospatial & Temporal Analysis
 🔄 Data Processing Pipeline
 Data Ingestion
 Combined multiple CSV files into a single Spark DataFrame
@@ -29,6 +30,7 @@ Filtered incomplete records in critical columns
 Feature Engineering
 Extracted year, month, and day-of-week
 Prepared latitude and longitude features for clustering
+Scaled features for K-Means clustering
 📈 Analysis & Insights
 Temporal Analysis
 Crime rates peak during summer months (June–August)
@@ -41,8 +43,9 @@ Majority of crimes occur in public spaces like streets and sidewalks
 Applied K-Means clustering on latitude and longitude features
 Grouped crime incidents into high-density geographical clusters
 Identified urban crime hotspots aligned with major roads and high-traffic areas
+Number of clusters: 15 (chosen based on silhouette score and elbow method)
 🧠 Key Takeaways
-Big Data analytics can enable proactive crime prevention
+Big Data analytics enables proactive crime prevention
 Geospatial clustering reveals actionable crime hotspots
 Temporal patterns help optimize resource allocation
 The approach supports data-driven public safety strategies
@@ -50,7 +53,8 @@ The approach supports data-driven public safety strategies
 Incorporate predictive models for future crime forecasting
 Add interactive crime heatmaps using GIS tools
 Integrate socioeconomic and weather data for deeper insights
-Deploy as a dashboard for real-time monitoring
+Deploy as a real-time monitoring dashboard
+Explore streaming data for immediate hotspot detection
 👥 Contributors
 Zain Nofal
 Ibrahim Mehmood
