@@ -1,0 +1,8 @@
+# Large data & archives
+*.csv
+*.ipynb
+*.zip
+
+# Python / Spark
+__pycache__/
+.env

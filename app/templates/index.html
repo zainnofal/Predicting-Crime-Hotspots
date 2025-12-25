@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Department Crime Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f3f3f2; /* Yellow theme background */
+            color: #333333;
+        }
+
+        header {
+            background: #001f3f; /* Navy blue */
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid #FF4136;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 20px;
+        }
+
+        .badge {
+            width: 150px; /* Adjust the badge size */
+            height: 150px;
+            background-image: url('/static/badge.png'); /* Path to the badge image */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 30px; /* Spacing between badge and form */
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        form {
+            background: #ffffff;
+            color: #333333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #001f3f;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: calc(100% - 24px);
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FF4136;
+            color: #ffffff;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #85144b;
+        }
+
+        .plot-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .plot {
+            width: 90%;
+            max-width: 1400px;
+            background: #ffffff;
+            color: #333333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+        }
+
+        footer {
+            background: #001f3f;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Police Department Crime Dashboard</h1>
+        <p>Serving and Protecting the Community</p>
+    </header>
+
+    <div class="main-container">
+        <div class="badge"></div> <!-- Badge image with no border -->
+        <div class="form-container">
+            <form method="POST" action="/">
+                <label for="area_name">Area Name:</label>
+                <input type="text" id="area_name" name="area_name" placeholder="Enter area name" required>
+                <button type="submit">Analyze</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="plot-container">
+        {% if plot_html_1 %}
+        <div class="plot">
+            <h2>Top Crime Types and Arrest Distribution</h2>
+            {{ plot_html_1 | safe }}
+        </div>
+        {% endif %}
+
+        {% if plot_html_2 %}
+        <div class="plot">
+            <h2>Monthly and Yearly Crime Trends</h2>
+            {{ plot_html_2 | safe }}
+        </div>
+        {% endif %}
+
+        {% if plot_html_3 %}
+        <div class="plot">
+            <h2>Arrest Analysis: Crimes with Arrests</h2>
+            {{ plot_html_3 | safe }}
+        </div>
+        {% endif %}
+    </div>
+
+    <footer>
+        &copy; 2024 Police Department | Crime Analysis Dashboard
+    </footer>
+</body>
+</html>
